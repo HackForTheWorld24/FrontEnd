@@ -1,17 +1,34 @@
 function randomizeStarLocations() {
     var stars = document.getElementsByClassName('random-stars');
+    var intervals = []; // Array to store interval IDs
+
     for (var i = 0; i < stars.length; i++) {
         // Fade out the star
         stars[i].style.opacity = 0;
 
+        // Clear previous interval for the star
+        clearTimeout(intervals[i]);
+
         // After the star has faded out, move it and fade it back in
-        setTimeout(function(star) {
+        intervals[i] = setTimeout(function(star) {
             var randomX = Math.floor(Math.random() * window.innerWidth);
             var randomY = Math.floor(Math.random() * window.innerHeight);
+            star.style.opacity = 0; // Set opacity to 0 before moving and fading back in
             star.style.left = randomX + 'px';
             star.style.top = randomY + 'px';
-            star.style.opacity = 1;
-        }, 500, stars[i]); // 500 should be the same as your CSS transition duration
+            setTimeout(function() {
+                star.style.opacity = 1; 
+            }, 1000); // Wait for 1 second before fading back in
+        }, (Math.random() * 2000), stars[i]); // Random interval between 0 and 2000 milliseconds
     }
 }
-setInterval(randomizeStarLocations, 2000); // 2000 should be at least twice your CSS transition duration
+
+function startRandomization() {
+    randomizeStarLocations();
+    setTimeout(function() {
+        randomizeStarLocations();
+        setTimeout(startRandomization, Math.random() * 3000);
+    }, Math.random() * 2000);
+}
+
+startRandomization();
