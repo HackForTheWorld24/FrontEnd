@@ -34,6 +34,8 @@ body {
     position: absolute; /* Add this line */
 }
 
+/* Add more star classes with different sizes and animation durations */
+
 .stars2 {
     z-index: 10;
     width: 2px;
@@ -58,6 +60,25 @@ body {
     position: absolute; /* Add this line */
 }
 
+/* Add a new star class for random positions */
+
+.random-stars {
+    z-index: 10;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: transparent;
+
+    opacity: 1; /* Start fully visible */
+    transition: opacity 0.5s; /* Fade in/out over 0.5 seconds */
+    
+    box-shadow: 300px 300px #FFF, 300px 300px #FFF; 
+    animation: animStar 100s linear infinite;
+    display: block; /* Add this line */
+    position: absolute; /* Add this line */
+}
+
+
 .comet {
     z-index: 10;
     width: 5px;
@@ -68,12 +89,14 @@ body {
     bottom: 0;
     right: 0;
     background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
-    animation: animShootingStar 10s linear infinite;
-    animation-delay: calc(-1s * random());
-        transform: translateX(calc(100% + 100vw * 0.5));
-        top: calc(100% * 0.5); /* Fix random position */
-        left: calc(100% * 0.5); /* Fix random position */
-    }
+    animation-name: animShootingStar; /* Call the animShootingStar keyframe animation */
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    transform: translateX(calc(100% + 100vw * 0.5));
+    top: calc(100% * 0.5); /* Fix random position */
+    left: calc(100% * 0.5); /* Fix random position */
+}
 
 @keyframes animStar {
     from {
