@@ -66,31 +66,14 @@ img {
     border-radius: 50%;
     background: transparent;
 
-    opacity: 0;
-    transition: opacity 0.5s; /* Fade in/out over 0.5 seconds */
+    opacity: 1; /* Update opacity value to 1 */
+    transition: opacity 0.5s;
 
     box-shadow: 300px 300px #FFF, 300px 300px #FFF; 
     animation: animStar 100s linear infinite;
-    display: block; /* Add this line */
-    position: absolute; /* Add this line */
+    display: block;
+    position: absolute;
 }
-
-.random-stars3 {
-    z-index: 10;
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: transparent;
-
-    opacity: 0;
-    transition: opacity 0.5s; /* Fade in/out over 0.5 seconds */
-
-    box-shadow: 300px 300px #FFF, 300px 300px #FFF; 
-    animation: animStar 100s linear infinite;
-    display: block; /* Add this line */
-    position: absolute; /* Add this line */
-}
-
 
 .comet {
     z-index: 10;
@@ -112,7 +95,7 @@ img {
 
 @keyframes animStar {
     from {
-        transform: translateY(0px);
+        transform: translateY(100%) translateX(100%);
     }
     to {
         transform: translateY(-1000px) translateX(-1000px);

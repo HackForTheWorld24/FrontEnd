@@ -1,6 +1,5 @@
 function randomizeStarLocations() {
     var stars = document.getElementsByClassName('random-stars');
-    var stars = document.getElementsByClassName('random-stars');
     var intervals = []; // Array to store interval IDs
 
     for (var i = 0; i < stars.length; i++) {
@@ -14,6 +13,7 @@ function randomizeStarLocations() {
         intervals[i] = setTimeout(function(star) {
             var randomX = Math.floor(Math.random() * window.innerWidth);
             var randomY = Math.floor(Math.random() * window.innerHeight);
+            star.style.opacity = 1; // Set opacity to 0 before moving and fading back in
             star.style.left = randomX + 'px';
             star.style.top = randomY + 'px';
             setTimeout(function() {
@@ -27,7 +27,7 @@ function startRandomization() {
     randomizeStarLocations();
     setTimeout(function() {
         randomizeStarLocations();
-        setTimeout(startRandomization, Math.random() * 5000);
+        setTimeout(startRandomization, Math.random() * 3000);
     }, Math.random() * 2000);
 }
 
