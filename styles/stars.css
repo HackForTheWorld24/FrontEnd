@@ -3,12 +3,15 @@
 html, body {
     height: 100%;
     width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative; /* Add this line */
 }
 
 .main-container {
@@ -21,6 +24,32 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+h1 {
+    color: yellow;
+    font-size: 3em;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    font-family: Courier, monospace; /* Add this line */
+}
+
+p {
+    color: yellow;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    font-family: Courier, monospace; /* Add this line */
+}
+
+
 
 .random-stars {
     z-index: 10;
@@ -45,11 +74,11 @@ body {
     border-radius: 50%;
     background: transparent;
 
-    opacity: 1; /* Start fully visible */
+    opacity: 0;
     transition: opacity 0.5s; /* Fade in/out over 0.5 seconds */
 
     box-shadow: 300px 300px #FFF, 300px 300px #FFF; 
-    animation: animStar 50s linear infinite;
+    animation: animStar 100s linear infinite;
     display: block; /* Add this line */
     position: absolute; /* Add this line */
 }
